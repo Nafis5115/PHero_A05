@@ -23,7 +23,9 @@ callButtons.forEach((button) => {
           <h1 class="text-[14px] font-semibold">${title}</h1>
           <p class="text-[14px] text-[#5C5C5C]">${number}</p>
         </div>
-        <p class="text-[14px]">${new Date().toLocaleTimeString()}</p>
+        <p class="text-[14px]">${new Date().toLocaleTimeString("en-US", {
+          our12: true,
+        })}</p>
       `;
 
       // Append card inside container
