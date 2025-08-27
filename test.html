@@ -1,0 +1,31 @@
+<!-- Example card -->
+<div class="card">
+  <h3 class="title">National Emergency Number</h3>
+  <p class="number">999</p>
+  <button class="call-btn">Call</button>
+</div>
+
+<div class="card">
+  <h3 class="title">Ambulance Service</h3>
+  <p class="number">1994-999999</p>
+  <button class="call-btn">Call</button>
+</div>
+
+<script>
+  // Select all call buttons
+  const callButtons = document.querySelectorAll(".call-btn");
+
+  callButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Find the parent card
+      const card = this.closest(".card");
+
+      // Get title and number from the card
+      const title = card.querySelector(".title").innerText;
+      const number = card.querySelector(".number").innerText;
+
+      // Show alert
+      alert(`${title} : ${number}`);
+    });
+  });
+</script>
