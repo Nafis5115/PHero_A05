@@ -12,9 +12,31 @@ callButtons.forEach((button) => {
     } else {
       document.getElementById("coin").innerText =
         document.getElementById("coin").innerText - 20;
+      const historyContainer = document.getElementById("history-container");
+      const card = document.createElement("div");
+      card.className =
+        "bg-gray-100 mt-2 p-4 rounded-md flex justify-between items-center";
+
+      // Add inner content (same as your template)
+      card.innerHTML = `
+        <div>
+          <h1 class="text-[14px] font-semibold">${title}</h1>
+          <p class="text-[14px] text-[#5C5C5C]">${number}</p>
+        </div>
+        <p class="text-[14px]">${new Date().toLocaleTimeString()}</p>
+      `;
+
+      // Append card inside container
+      historyContainer.appendChild(card);
       alert(`📞 Calling ${title}  ${number}...`);
     }
   });
+});
+
+const clearButton = document.getElementById("clear-btn");
+clearButton.addEventListener("click", function () {
+  const historyContainer = document.getElementById("history-container");
+  historyContainer.innerHTML = "";
 });
 
 const heartButtons = document.querySelectorAll("#heart-btn");
@@ -27,6 +49,7 @@ heartButtons.forEach((button) => {
 const copyButtons = document.querySelectorAll("#copy-btn");
 copyButtons.forEach((btn) => {
   btn.addEventListener("click", function () {
+    document.getElementById("copy-count").innerText++;
     const card = this.closest("#card");
     const numberText = card.querySelector("#number").innerText.trim();
     const textarea = document.createElement("textarea");
