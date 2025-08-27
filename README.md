@@ -1,4 +1,4 @@
-with getElementById, we can call an element by it's id and we can get only one element by thisWith getElementsByClassName, we can call mutltiple elements with it's given class name. And it comes with array form.
+with getElementById, we can call an element by it's id and we can get only one element by this. With getElementsByClassName, we can call mutltiple elements with it's given class name. And it comes with array form.
 With querySelector, we can call the first element matching by it's id or css class name or attributes etc.
 With querySelectorAll, we call call mutliple elements matching by its's id or css class name or attributes etc.
    
