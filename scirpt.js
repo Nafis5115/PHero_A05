@@ -62,5 +62,6 @@ copyButtons.forEach((btn) => {
     textarea.select();
     document.execCommand("copy");
     document.body.removeChild(textarea);
+    alert(`Number copied: ${textarea.value}`);
   });
 });
