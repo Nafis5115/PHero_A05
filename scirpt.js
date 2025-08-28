@@ -49,19 +49,18 @@ heartButtons.forEach((button) => {
 });
 
 const copyButtons = document.querySelectorAll("#copy-btn");
+
 copyButtons.forEach((btn) => {
-  btn.addEventListener("click", function () {
+  btn.addEventListener("click", async function () {
     document.getElementById("copy-count").innerText++;
     const card = this.closest("#card");
     const numberText = card.querySelector("#number").innerText.trim();
-    const textarea = document.createElement("textarea");
-    textarea.value = numberText;
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-    alert(`Number copied: ${textarea.value}`);
+
+    try {
+      await navigator.clipboard.writeText(numberText);
+      alert(`Number copied: ${numberText}`);
+    } catch (err) {
+      console.error("Copy failed", err);
+    }
   });
 });
